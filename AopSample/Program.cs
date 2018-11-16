@@ -16,9 +16,9 @@ namespace AopSample
         {
             ContainerRegister();
 
-            var longWork = new LongWork();
-            //var longWork = _container.Resolve<ILongWork>();
-            Console.WriteLine(longWork.Process(1, 2));
+			//var longWork = new LongWork();
+			var longWork = _container.Resolve<ILongWork>();
+			Console.WriteLine(longWork.Process(1, 2));
             Console.WriteLine();
             Console.WriteLine(longWork.Process(1, 2));
             Console.WriteLine();
@@ -33,11 +33,12 @@ namespace AopSample
             Console.WriteLine();
             Console.WriteLine(longWork.Process(3, 4));
 
-            //Thread.Sleep(3000);
+			Thread.Sleep(3000);
+			Console.WriteLine("sleep 3 seconds");
 
-            //Console.WriteLine(longWork.Process(1, 2));
-            //Console.WriteLine(longWork.Process(3, 4));
-        }
+			Console.WriteLine(longWork.Process(1, 2));
+			Console.WriteLine(longWork.Process(3, 4));
+		}
 
         private static void ContainerRegister()
         {
